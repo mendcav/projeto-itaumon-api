@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -56,6 +57,20 @@ public class UsuarioController {
 
 	}
 
+	@PutMapping("/usuario/{cod}")
+	public ResponseEntity<Usuario> update(int cod, @RequestBody Usuario objeto){
+		try {
+			objeto.setCodigo(cod);
+			Usuario resposta = dao.save(objeto);
+			return ResponseEntity.ok(resposta);
+		}catch(Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(403).build();
+		}
+		
+	}
+	
+	
 
 	@PostMapping("/novousuario")
 	public ResponseEntity<Usuario> add(@RequestBody Usuario objeto){
@@ -66,6 +81,7 @@ public class UsuarioController {
 			e.printStackTrace();
 			return ResponseEntity.status(403).build();
 		}
+		
 	}
 
 	@GetMapping("/getnome/{var}")
