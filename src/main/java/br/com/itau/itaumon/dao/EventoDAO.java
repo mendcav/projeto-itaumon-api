@@ -12,7 +12,7 @@ public interface EventoDAO extends CrudRepository <Evento, Integer>{
 	List<Evento> findByEvento(int evento);
 	
 	//Pesquisar intervalo
-	List<Evento> findBycadastroBetween(Date inicio, Date fim);
+	//List<Evento> findBycadastroBetween(Date inicio, Date fim);
 	
 	
 

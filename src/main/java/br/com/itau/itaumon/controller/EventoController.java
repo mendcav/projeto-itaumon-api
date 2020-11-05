@@ -41,7 +41,7 @@ public class EventoController {
 	}
 	
 	//pesquisar intervalo
-	@GetMapping("/cadastro/{i}/{f}")
+	/*@GetMapping("/cadastro/{i}/{f}")
 	public ResponseEntity<List<Evento>> getIntervalo
 		(@PathVariable String i, @PathVariable String f)throws Exception{
 		SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
@@ -53,7 +53,7 @@ public class EventoController {
 		}
 		return ResponseEntity.ok(lista);
 	}
-	
+	*/
 	
 
 	
