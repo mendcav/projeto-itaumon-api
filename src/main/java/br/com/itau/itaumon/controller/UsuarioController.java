@@ -58,7 +58,7 @@ public class UsuarioController {
 	}
 
 	@PutMapping("/usuario/{cod}")
-	public ResponseEntity<Usuario> update(int cod, @RequestBody Usuario objeto){
+	public ResponseEntity<Usuario> update(@PathVariable int cod, @RequestBody Usuario objeto){
 		try {
 			objeto.setCodigo(cod);
 			Usuario resposta = dao.save(objeto);
