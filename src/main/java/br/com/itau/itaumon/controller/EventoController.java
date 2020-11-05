@@ -1,5 +1,7 @@
 package br.com.itau.itaumon.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,22 @@ public class EventoController {
 		}
 		return ResponseEntity.ok(objeto);
 	}
+	
+	//pesquisar intervalo
+	@GetMapping("/cadastro/{i}/{f}")
+	public ResponseEntity<List<Evento>> getIntervalo
+		(@PathVariable String i, @PathVariable String f)throws Exception{
+		SimpleDateFormat formato = new SimpleDateFormat("yyyy-mm-dd");
+		Date inicio = formato.parse(i);
+		Date fim = formato.parse(f);
+		List<Evento> lista = (List<Evento>) dao.findBycadastroBetween(inicio, fim);
+		if (lista.size()==0) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.ok(lista);
+	}
+	
+	
 
 	
 }
