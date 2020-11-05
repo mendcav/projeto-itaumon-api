@@ -33,7 +33,7 @@ public class UsuarioController {
 		return ResponseEntity.ok(lista);
 	}
 
-	@GetMapping("/novousuario/{cod}")
+	@GetMapping("/usuario/{cod}")
 	public ResponseEntity<Usuario> pesquisarUsuario(@PathVariable int cod) {
 		Usuario objeto = dao.findById(cod).orElse(null);
 		if (objeto == null) {
@@ -42,7 +42,7 @@ public class UsuarioController {
 		return ResponseEntity.ok(objeto);
 	}
 	
-	@DeleteMapping("/deletausuario/{cod}")
+	@DeleteMapping("/usuario/{cod}")
 	public ResponseEntity<Usuario> apagarUsuario(@PathVariable int cod) {
 		Usuario objeto = dao.findById(cod).orElse(null);
 		if (objeto == null) {
